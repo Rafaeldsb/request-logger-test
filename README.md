@@ -12,13 +12,13 @@
 ## Technologies
 Summary of Technologies Used in the Application Architecture:
 
-**Nest.js**: Nest.js was utilized as the backend framework, providing a modular and scalable structure for building APIs and microservices.
+**Nest.js**: Nest.js was utilized as the backend framework, providing a modular and scalable structure for building the API.
 
 **Jest**: Jest served as the testing framework, enabling the creation of unit and integration tests to ensure code reliability and quality.
 
-**Docker**: Used to create containerized environments for the application.
+**Docker**: Used to create containerized environment for the application.
 
-**Docker-compose** (Local Development): Streamlined local development by managing multi-container applications, like the application and mongodb.
+**Docker-compose** (Local Development): Streamlined local development by managing multi-container applications, like the rest api and mongodb.
 
 **Cloud Run**: Google Cloud Run was utilized as the serverless compute platform, facilitating automatic scaling and easy deployment of containerized applications.
 
