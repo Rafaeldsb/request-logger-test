@@ -17,10 +17,7 @@ describe('RequestService', () => {
   let service: RequestService;
   let model: Model<Request>;
 
-  const requestsMock = [
-    mockRequest,
-    mockRequest
-  ];
+  const requestsMock = [mockRequest, mockRequest];
 
   beforeEach(async () => {
     const module: TestingModule = await Test.createTestingModule({
@@ -51,7 +48,7 @@ describe('RequestService', () => {
     jest.spyOn(model, 'find').mockReturnValue({
       sort: jest.fn().mockReturnValue({
         exec: jest.fn().mockResolvedValueOnce(requestsMock),
-      })
+      }),
     } as any);
     const requests = await service.findAll();
     expect(requests).toEqual(requests);

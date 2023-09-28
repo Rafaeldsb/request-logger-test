@@ -15,7 +15,7 @@ import { APP_INTERCEPTOR } from '@nestjs/core';
     {
       provide: APP_INTERCEPTOR,
       useValue: new RavenInterceptor(),
-    }
-  ]
+    },
+  ],
 })
-export class AppModule { }
+export class AppModule {}

@@ -11,4 +11,4 @@ import { RequestService } from './services/request.service';
   controllers: [RequestController],
   providers: [RequestService],
 })
-export class RequestModule { }
+export class RequestModule {}

@@ -1,5 +1,3 @@
-import { IsIP } from 'class-validator';
-
 export class CreateRequestDto {
   public readonly path: string;
   public readonly ip: string;

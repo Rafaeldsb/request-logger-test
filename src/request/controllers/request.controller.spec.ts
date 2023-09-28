@@ -22,10 +22,7 @@ describe('Request Controller', () => {
         {
           provide: RequestService,
           useValue: {
-            findAll: jest.fn().mockResolvedValue([
-              mockRequest,
-              mockRequest,
-            ]),
+            findAll: jest.fn().mockResolvedValue([mockRequest, mockRequest]),
             create: jest.fn().mockResolvedValue(mockRequest),
           },
         },
@@ -42,17 +39,23 @@ describe('Request Controller', () => {
         .spyOn(service, 'create')
         .mockResolvedValueOnce(mockRequest);
 
-      await controller.createRequest({
-        host: 'test.com',
-        'user-agent': 'agent-test'
-      }, '0.0.0.0', { path: '/v1/requests', method: 'POST' });
+      await controller.createRequest(
+        {
+          host: 'test.com',
+          'user-agent': 'agent-test',
+        },
+        '0.0.0.0',
+        { path: '/v1/requests', method: 'POST' },
+      );
 
-      expect(createSpy).toHaveBeenCalledWith(expect.objectContaining({
-        host: 'test.com',
-        path: 'POST /v1/requests',
-        agent: 'agent-test',
-        ip: '0.0.0.0',
-      }));
+      expect(createSpy).toHaveBeenCalledWith(
+        expect.objectContaining({
+          host: 'test.com',
+          path: 'POST /v1/requests',
+          agent: 'agent-test',
+          ip: '0.0.0.0',
+        }),
+      );
     });
   });
 
@@ -60,7 +63,7 @@ describe('Request Controller', () => {
     it('should return an array of requests', async () => {
       expect(controller.getRequests()).resolves.toEqual([
         mockRequest,
-        mockRequest
+        mockRequest,
       ]);
       expect(service.findAll).toHaveBeenCalled();
     });

@@ -1,4 +1,4 @@
-import * as Sentry from "@sentry/node";
+import * as Sentry from '@sentry/node';
 import { NestFactory } from '@nestjs/core';
 import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
@@ -8,7 +8,6 @@ import { ExpressAdapter } from '@nestjs/platform-express';
 import { appConfig } from './config/app';
 
 async function bootstrap() {
-
   const server = express();
 
   Sentry.init({

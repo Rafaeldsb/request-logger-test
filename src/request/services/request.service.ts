@@ -6,7 +6,9 @@ import { CreateRequestDto } from '../dto/create-request.dto';
 
 @Injectable()
 export class RequestService {
-  constructor(@InjectModel(Request.name) private readonly requestModel: Model<Request>) { }
+  constructor(
+    @InjectModel(Request.name) private readonly requestModel: Model<Request>,
+  ) {}
 
   public async create(data: CreateRequestDto): Promise<Request> {
     return await this.requestModel.create(data);
