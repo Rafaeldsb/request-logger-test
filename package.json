@@ -25,6 +25,7 @@
     "@nestjs/platform-express": "^10.0.0",
     "@sentry/node": "^7.72.0",
     "@sentry/profiling-node": "^1.2.1",
+    "axios": "^1.5.1",
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "mongoose": "^7.5.3",
@@ -71,7 +72,7 @@
     ],
     "coverageDirectory": "../coverage",
     "testEnvironment": "node",
-    "coveragePathIgnorePatterns" : [
+    "coveragePathIgnorePatterns": [
       "src/main.ts",
       "src/config/app.ts",
       "src/app.module.ts",
