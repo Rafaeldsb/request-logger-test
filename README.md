@@ -2,6 +2,10 @@
 [![Codacy Badge](https://app.codacy.com/project/badge/Grade/bc6e967034fa49468c509e05184758fd)](https://app.codacy.com/gh/Rafaeldsb/request-logger-test/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_grade)
 [![Codacy Badge](https://app.codacy.com/project/badge/Coverage/bc6e967034fa49468c509e05184758fd)](https://app.codacy.com/gh/Rafaeldsb/request-logger-test/dashboard?utm_source=gh&utm_medium=referral&utm_content=&utm_campaign=Badge_coverage)
 
+# Documentation
+**API Docs**: https://rafael-dsb.stoplight.io/docs/request-logger/branches/main/d64oqw1kq2kd1-request-logger-test
+
+**Architecture Docs**:  https://whimsical.com/request-logger-test-867g42awzqSxD9hhrhgmt6@7YNFXnKbYn8S1mpfLepg9
 
 # Architecture
 
@@ -41,7 +45,7 @@ pm2 start ./scripts/logger-runner.js
 pm2 startup
 ```
 
-Running pm2 startup will provide a command for you to execute.
+Running `pm2 startup` will provide a command for you to execute.
 
 Next, perform the following:
 ```sh
