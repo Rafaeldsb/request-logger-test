@@ -20,7 +20,7 @@ export class RequestController {
       agent: headers['user-agent'],
       host: headers.host,
       path: `${req.method} ${req.path}`,
-      timestamp: new Date(),
+      timestamp: new Date().toISOString(),
       ip,
     }));
   }
