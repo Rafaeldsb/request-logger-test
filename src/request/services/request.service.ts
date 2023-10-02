@@ -15,6 +15,10 @@ export class RequestService {
   }
 
   public async findAll(): Promise<Request[]> {
-    return await this.requestModel.find().sort({ timestamp: 'desc' }).exec();
+    return await this.requestModel
+      .find()
+      .sort({ timestamp: 'desc' })
+      .limit(100)
+      .exec();
   }
 }

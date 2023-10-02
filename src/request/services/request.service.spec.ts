@@ -47,7 +47,9 @@ describe('RequestService', () => {
   it('should return all requests', async () => {
     jest.spyOn(model, 'find').mockReturnValue({
       sort: jest.fn().mockReturnValue({
-        exec: jest.fn().mockResolvedValueOnce(requestsMock),
+        limit: jest.fn().mockReturnValue({
+          exec: jest.fn().mockResolvedValueOnce(requestsMock),
+        }),
       }),
     } as any);
     const requests = await service.findAll();
