@@ -14,7 +14,7 @@ import { Pagination } from 'request/dto/pagination.dto';
 
 @Controller('/v1/requests')
 export class RequestController {
-  constructor(private readonly requestService: RequestService) {}
+  constructor(private readonly requestService: RequestService) { }
 
   @Get()
   public async getRequests(
@@ -36,7 +36,7 @@ export class RequestController {
         host: headers.host,
         path: `${req.method} ${req.path}`,
         timestamp: new Date().toISOString(),
-        ip,
+        ip: headers['x-forwarded-for'] ?? ip,
       }),
     );
   }
