@@ -31,6 +31,7 @@ describe('RequestService', () => {
             find: jest.fn(),
             create: jest.fn(),
             exec: jest.fn(),
+            countDocuments: jest.fn(),
           },
         },
       ],
@@ -47,12 +48,17 @@ describe('RequestService', () => {
   it('should return all requests', async () => {
     jest.spyOn(model, 'find').mockReturnValue({
       sort: jest.fn().mockReturnValue({
-        limit: jest.fn().mockReturnValue({
-          exec: jest.fn().mockResolvedValueOnce(requestsMock),
+        skip: jest.fn().mockReturnValue({
+          limit: jest.fn().mockReturnValue({
+            exec: jest.fn().mockResolvedValueOnce(requestsMock),
+          }),
         }),
       }),
     } as any);
-    const requests = await service.findAll();
+    jest.spyOn(model, 'countDocuments').mockReturnValue({
+      exec: jest.fn(),
+    } as any);
+    const requests = await service.findAll(1, 10);
     expect(requests).toEqual(requests);
   });
 

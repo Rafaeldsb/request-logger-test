@@ -5,18 +5,23 @@ import {
   Headers,
   Ip,
   Post,
+  Query,
 } from '@nestjs/common';
 import { RequestService } from '../services/request.service';
 import { CreateRequestDto } from '../dto/create-request.dto';
 import { Request } from '../schemas/request.schema';
+import { Pagination } from 'request/dto/pagination.dto';
 
 @Controller('/v1/requests')
 export class RequestController {
   constructor(private readonly requestService: RequestService) {}
 
   @Get()
-  public async getRequests(): Promise<Request[]> {
-    return this.requestService.findAll();
+  public async getRequests(
+    @Query('page') page: number = 1,
+    @Query('perPage') perPage: number = 50,
+  ): Promise<Pagination<Request>> {
+    return this.requestService.findAll(page, perPage);
   }
 
   @Post()
